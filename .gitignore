@@ -1,0 +1,57 @@
+.project
+# Ignore configuration files that may contain sensitive information.
+docroot/sites/*/*settings*.php
+
+# Ignore all local sites
+docroot/sites/*.local
+docroot/sites/*.docker
+
+# Ignore paths that contain generated content.
+cache/
+files/
+sites/*/files
+sites/*/private
+# OS generated files
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+
+# sass and Codekit
+
+.sass-cache
+codekit-config.json
+# assets/stylesheets/style.css
+# assets/stylesheets/styles.css
+
+# Wordpress
+
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+*.log
+wp-content/cache/
+wp-content/backups/
+
+
+#docker
+docker-compose.override.yml
+
+# Phpstorm
+.idea
+
+# Node packages
+node_modules
+
+# php packages
+vendor
+
+# Encryption keys
+keys

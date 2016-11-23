@@ -1,0 +1,39 @@
+version: '2'
+volumes:
+  local_data:
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+      - "8025:8025"
+    extra_hosts:
+      - "dev.srijan.local:127.0.0.1"
+    links:
+      - db
+    volumes:
+      - ~/.drush/:/root/.drush/
+      - /var/www/html/:/var/www/html/
+    environment:
+      - TERM=xterm
+  db:
+    image: mysql:5
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker-utils/mysql/conf.d:/etc/mysql/conf.d
+      - local_data:/var/lib/mysql
+    #entrypoint: ./docker-utils/
+    environment:
+      MYSQL_ROOT_PASSWORD: srijan@test
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: srijan@test
+      MYSQL_DATABASE: devportal
+  webdriver:
+    build: ./docker-utils/webdriver/
+    ports:
+     - "4444:4444"
+    environment:
+      - TERM=xterm
