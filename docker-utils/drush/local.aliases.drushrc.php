@@ -8,9 +8,6 @@ if (!isset($drush_major_version)) {
 $aliases['local-dev'] = array(
   'root' => '/var/www/html/docroot',
   'uri' => 'dev.srijan.local',
-  'remote-host' => 'dev.srijan.local',
-  'remote-user' => 'root',
-  //'ssh-options' => '-p 49100',
 );
 
 $aliases['local-dev.ssh'] = array(
